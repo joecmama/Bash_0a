@@ -1,0 +1,13 @@
+#!/bin/bash
+
+folder="files/"
+cd $folder
+pwd
+
+for fileN in $(ls)
+do
+   redactFileN='redact_'$fileN
+   # Redact with x's anything (/g) that matches 3numbers-3numbers-4numbers pattern.
+   sed 's/[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]/XXX-XXX-XXXX/g' $fileN > $redactFileN
+done
+
